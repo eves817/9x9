@@ -1,0 +1,220 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CS225.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="zh">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - 我的 ASP.NET  應用程式</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+   
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        ul {
+        transform-style:preserve-3d;
+        transform:rotateX(40deg);
+        transition:all 0.4s;
+        perspective-origin:center center;
+        }
+        body {
+        margin-top:100px;margin-left:200px;color:white;
+        }
+        li {
+        position:absolute;
+            left:0;
+            top:0;
+        width:100%;
+        height:100%;
+        background:coral;
+        transition-delay:0.3s;
+        backface-visibility:hidden;
+        background-size:300%300%;
+        overflow:hidden;
+        }
+        ul:nth-of-type(1) {
+        width:120px;
+        height:80px;
+        }
+            ul:nth-of-type(1) li
+             {
+            background-image:url(/Images/lisa.jpg);
+            }
+          li:nth-of-type(1)
+             {
+          background-position:center center;
+          transform:none;
+            }
+         li:nth-of-type(2)
+             {
+          background-position:right center;
+          transform-origin:left center;
+          transform:rotateY(180deg);
+          left:100%;
+            }
+        li:nth-of-type(3) 
+        {
+         background-position:center bottom;
+          transform-origin:center top;
+          transform:rotateX(-180deg);
+          top:100%;
+        }
+         li:nth-of-type(4) 
+        {
+         background-position:left bottom;
+          transform-origin:right center;
+          transform:rotateY(-180deg);
+          left:-100%;
+        }
+          li:nth-of-type(5) 
+        {
+         background-position:center top;
+          transform-origin:center bottom;
+          transform:rotateX(180deg);
+          top:-100%;
+        }
+           li:nth-of-type(6) 
+        {
+         background-position:right bottom;
+         transform-origin:center top;
+          transform:rotateX(-180deg);
+         top:100%;
+         left:100%;
+        }
+            li:nth-of-type(7) 
+        {
+         background-position:left bottom;
+         transform-origin:right center;
+          transform:rotateY(-180deg);
+         top:100%;
+         left:-100%;
+        } 
+            li:nth-of-type(8) 
+        {
+         background-position:left top;
+         transform-origin:center bottom;
+          transform:rotateX(180deg);
+         top:-100%;
+         left:-100%;
+        }
+             li:nth-of-type(9) 
+        {
+         background-position:right top;
+         transform-origin:left bottom;
+          transform:rotateY(180deg);
+         top:-100%;
+         left:100%;
+        }
+        ul:hover :nth-of-type(2)
+        {transform:rotateY(0);
+         transition-delay:0s
+        }
+        ul:hover :nth-of-type(3) 
+        {transform:rotateX(0);
+         transition-delay:0s
+        }
+        ul:hover :nth-of-type(4) 
+        {transform:rotateY(0); 
+         transition-delay:0s
+        }
+        ul:hover :nth-of-type(5) 
+        {transform:rotateX(0);
+         transition-delay:0s
+        }
+        ul:hover :nth-of-type(6) 
+        {transform:rotateY(0);
+         transition-delay:0.2s
+        }
+        ul:hover :nth-of-type(7) 
+        {transform:rotateX(0);
+         transition-delay:0.2s
+        }
+        ul:hover :nth-of-type(8) 
+        {transform:rotateY(0);
+         transition-delay:0.2s
+        }
+        ul:hover :nth-of-type(9) 
+        {transform:rotateX(0);
+        transition-delay:0.2s
+        }
+        ul:hover {
+        transform:translateZ(100px) 
+        rotateX(20deg);
+        z-index:999;
+        }
+        ul:nth-of-type(2) {
+        width:90px;
+        height:130px;
+        }
+        ul:nth-of-type(2) li
+         {
+        background-image:url(/Images/gogh.jpg);
+        }
+        .gally {
+            perspective:700px;
+        width:50vw;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-flow:row wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+        </div>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--如需了解 ScriptManager 的搭配指令碼，請參閱 http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--架構指令碼--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--網站指令碼--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+       
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+          
+    </form>
+</body>
+</html>
